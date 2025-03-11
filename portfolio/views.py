@@ -16,11 +16,7 @@ from .models import NewsletterSubscriber
 from django.contrib.auth.models import User
 
 
-def create_superuser(request):
-    if not User.objects.filter(username="admin").exists():
-        User.objects.create_superuser("venkyjallella", "jallellavenky42@gmail.com", "Venky@4427")
-        return HttpResponse("Superuser created successfully!")
-    return HttpResponse("Superuser already exists!")
+
 
 
 def robots_txt(request):
