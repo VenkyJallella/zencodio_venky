@@ -19,7 +19,7 @@ def upload_image(request):
 
 def home(request):
     posts = blogpost.objects.all()
-    return render(request, 'blog/blog_list.html',{'posts':posts})
+    return render(request, 'blog/blogpost.html',{'posts':posts})
 
 def blog_detail(request, slug):
     post = get_object_or_404(blogpost, slug=slug)
