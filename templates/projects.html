@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content  %}
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Our Products</h2>
+        <div class="row">
+                {% for proj in new_projects %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{{ proj.image.url }}" class="card-img-top" alt="{{ proj.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ proj.name }}</h5>
+                            <p class="card-text">{{ proj.description }}</p>
+                            <p class="card-text"><strong>₹{{ proj.price }}</strong></p>
+                            <a href="{% url 'product-detail' proj.pk %}" class="btn btn-primary">View More</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock  %}
+

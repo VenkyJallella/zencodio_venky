@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    About us
+{% endblock title %}
+    
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-section text-white text-center py-5" style="background: url('/static/images/about-bg.jpg') center/cover no-repeat;">
+    <div class="overlay p-5">
+        <h1 class="fw-bold">About Me</h1>
+        <p class="lead">Building innovative websites & digital solutions</p>
+    </div>
+</section>
+
+<!-- About Me Section -->
+<div class="container my-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <img src="{% static 'images/venky111.jpeg' %}" class="img-fluid rounded shadow-lg" alt="About Me">
+        </div>
+        <div class="col-md-6">
+            <h2 class="fw-bold text-primary">Who I Am</h2>
+            <p class="lead text-muted">
+                Hi, I'm <strong>Venky</strong>, a passionate web developer with expertise in Django and full-stack web development. 
+                I specialize in creating user-friendly, high-performing websites that help businesses thrive online.
+            </p>
+            <a href="{% url 'contactus' %}" class="btn btn-primary mt-3">Let's Work Together</a>
+        </div>
+    </div>
+</div>
+
+<!-- My Mission & Services -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow p-4">
+                <h3 class="text-primary">My Mission</h3>
+                <p>To help businesses grow by delivering top-notch, scalable, and secure websites tailored to their needs.</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow p-4">
+                <h3 class="text-primary">Services I Offer</h3>
+                <ul>
+                    <li>Custom Django Web Development</li>
+                    <li>E-Commerce Website Development</li>
+                    <li>SEO & Performance Optimization</li>
+                    <li>Payment Gateway Integration</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Me? -->
+<section class="container my-5 text-center">
+    <h2 class="fw-bold text-primary">Why Work With Me?</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <i class="fas fa-rocket fa-3x text-success"></i>
+            <h4 class="mt-3">Fast & Scalable</h4>
+            <p class="text-muted">I build websites optimized for speed, scalability, and user experience.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-lock fa-3x text-danger"></i>
+            <h4 class="mt-3">Secure & Reliable</h4>
+            <p class="text-muted">Your website will be built with top security practices and reliable hosting.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-headset fa-3x text-primary"></i>
+            <h4 class="mt-3">24/7 Support</h4>
+            <p class="text-muted">Get dedicated support whenever you need help or updates.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="text-center bg-light py-5">
+    <h2 class="fw-bold">Let's Create Something Amazing!</h2>
+    <p class="lead">Looking for a professional website? I'm here to help.</p>
+    <a href="{% url 'contactus' %}" class="btn btn-success btn-lg mt-3">Get in Touch</a>
+</section>
+
+<style>
+.hero-section {
+    position: relative;
+    min-height: 300px;
+}
+.hero-section .overlay {
+    background: rgba(0, 0, 0, 0.6);
+    display: inline-block;
+    padding: 30px;
+    border-radius: 10px;
+}
+</style>
+
+{% endblock %}

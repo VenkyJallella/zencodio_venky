@@ -1,0 +1,31 @@
+<!-- Newsletter Popup (Bootstrap Modal) -->
+<div class="modal fade" id="newsletterModal" tabindex="-1" aria-labelledby="newsletterModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newsletterModalLabel">Subscribe to Our Newsletter</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Get the latest updates straight to your inbox!</p>
+                <form method="POST" action="{% url 'subscribe_newsletter' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Auto Show Modal Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+            var newsletterModal = new bootstrap.Modal(document.getElementById("newsletterModal"));
+            newsletterModal.show();
+        }, 5000); // Show after 5 seconds
+    });
+</script>

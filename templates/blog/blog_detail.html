@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    blog_detail
+{% endblock title %}
+    
+{% block content %}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Blog Title -->
+            <h1 class="fw-bold">{{ post.title }}</h1>
+
+            <!-- Blog Meta Information -->
+            <p class="text-muted">
+                Published on <strong>{{ post.created_at|date:"F d, Y" }}</strong> by 
+                <strong>{{ post.author }}</strong>
+            </p>
+
+            <!-- Blog Image (Centered & Styled) -->
+            {% if post.image %}
+                <div class="text-center">
+                    <img src="{{ post.image.url }}" class="blog-img img-fluid my-3" alt="{{ post.title }}">
+                </div>
+            {% endif %}
+
+            <!-- Blog Content -->
+            <p class="lead">{{ post.content|safe }}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Back to Blog Button -->
+<div class="text-center my-4">
+    <a href="{% url 'home' %}" class="btn btn-outline-primary">← Back to Blogs</a>
+</div>
+
+<!-- Stylish Image CSS -->
+<style>
+.blog-img {
+    max-width: 80%;  /* Adjusts width */
+    max-height: 400px; /* Limits height */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2); /* Stylish shadow */
+}
+</style>
+
+{% endblock %}
