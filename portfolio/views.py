@@ -13,8 +13,15 @@ from blog.models import blogpost
 from blog.models import FAQ
 from .models import Testimonial
 from .models import NewsletterSubscriber
+from django.contrib.auth.models import User
 
-# Create your views here.
+
+def create_superuser(request):
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser("venkyjallella", "jallellavenky42@gmail.com", "Venky@4427")
+        return HttpResponse("Superuser created successfully!")
+    return HttpResponse("Superuser already exists!")
+
 
 def robots_txt(request):
     content = "User-agent: *\nDisallow: /admin/\nSitemap: https://zencodio.com/sitemap.xml"
