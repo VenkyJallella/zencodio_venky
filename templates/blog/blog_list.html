@@ -117,43 +117,44 @@
             {% endfor %}
         </div>
     </div>
-    <footer class="bg-dark text-light py-4">
-        <div class="container">
-            <div class="row">
-                <!-- Column 1: About -->
-                <div class="col-md-4">
-                    <h5>About Us</h5>
-                    <p>We provide high-quality web development services and solutions.</p>
-                </div>
-    
-                <!-- Column 2: Quick Links -->
-                <div class="col-md-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="{% url 'home' %}" class="text-light">Home</a></li>
-                        <li><a href="{% url 'aboutus' %}" class="text-light">About Us</a></li>
-                        <li><a href="{% url 'faq_page' %}" class="text-light">FAQs</a></li>
-                        <li><a href="{% url 'contactus' %}" class="text-light">Contact</a></li>
-                    </ul>
-                </div>
-    
-                <!-- Column 3: Legal -->
-                <div class="col-md-4">
-                    <h5>Legal</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="{% url 'privacy_policy' %}" class="text-light">Privacy Policy</a></li>
-                        <li><a href="{% url 'terms_conditions' %}" class="text-light">Terms & Conditions</a></li>
-                    </ul>
-                </div>
-            </div>
-    
-            <hr class="my-3 text-light">
-    
-            <div class="text-center">
-                <p>&copy; 2025 ZenCodio. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
     
 </body>
+<footer class="bg-dark text-light py-4">
+    <div class="container">
+        <div class="row">
+            <!-- Column 1: About -->
+            <div class="col-md-4">
+                <h5>About Us</h5>
+                <p>We provide high-quality web development services and solutions.</p>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'home' %}" class="text-light">Home</a></li>
+                    <li><a href="{% url 'aboutus' %}" class="text-light">About Us</a></li>
+                    <li><a href="{% url 'faq_page' %}" class="text-light">FAQs</a></li>
+                    <li><a href="{% url 'contactus' %}" class="text-light">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Legal -->
+            <div class="col-md-4">
+                <h5>Legal</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'privacy_policy' %}" class="text-light">Privacy Policy</a></li>
+                    <li><a href="{% url 'terms_conditions' %}" class="text-light">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="my-3 text-light">
+
+        <div class="text-center">
+            <p>&copy; 2025 ZenCodio. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
 </html>
