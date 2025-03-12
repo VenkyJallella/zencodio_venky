@@ -15,6 +15,10 @@ from .models import Testimonial
 from .models import NewsletterSubscriber
 from django.contrib.auth.models import User
 
+def check_users(request):
+    users = User.objects.values("username", "is_superuser")
+    return JsonResponse({"users": list(users)})
+
 def reset_superuser_password(request):
     try:
         user = User.objects.get(username="venkyjallella")
