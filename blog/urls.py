@@ -3,6 +3,7 @@ from django.urls import path
 from .views import home, blog_detail
 from django.conf.urls.static import static
 from django.conf import settings
+from .views import debug_cloudinary
 
 
 
@@ -10,6 +11,7 @@ urlpatterns = [
     path('upload_image/', upload_image, name='upload_image'),
     path('', home, name='home'),
     path('<slug:slug>/',blog_detail,name='blog_detail'),
+    path('debug-cloudinary/', debug_cloudinary,name='debug-cloudinary')
     
 ]
 
