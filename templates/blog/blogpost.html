@@ -4,29 +4,34 @@
 {% block title %}
     Blog
 {% endblock title %}
-    
+
 {% block content %}
-
-<div class="container my-5">
-    <h2 class="text-center mb-4">Latest Blog Posts</h2>
-
-    <div class="row g-4"> 
-        {% for post in posts %}
-            <div class="col-lg-4 col-md-6"> <!-- Responsive Grid Layout -->
-                <div class="card blog-card shadow-lg border-0">
-                    <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}" style="height: 220px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ post.title }}</h5>
-                        <p class="text-muted">{{ post.created_at|date:"M d, Y" }}</p>
-                        <p class="text-truncate" style="max-height: 100px; overflow: hidden;">
-                            {{ post.content | safe | truncatewords:20 }}
-                        </p>
-                        <a href="{% url 'blog_detail' post.slug %}" class="btn btn-outline-primary">Read More →</a>
-                    </div>
-                </div>
+    <div class="row">
+        <div class="col ms-5">
+            <div class="mt-3">
+                <h2 class="text-center mb-4">Latest Blog Posts</h2>
             </div>
-        {% endfor %}
+            <div class="row">  <!-- Added a row wrapper for proper column display -->
+                {% for post in posts %}
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            {% if post.image %}
+                                <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                            {% else %}
+                                <img src="{% static 'images/default-image.jpg' %}" class="card-img-top" alt="Default Image">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ post.title }}</h5>
+                                <p class="text-muted">{{ post.created_at|date:"M d, Y" }}</p>
+                                <p class="text-truncate" style="max-height: 100px; overflow: hidden;">
+                                    {{ post.content | safe | truncatewords:20 }}
+                                </p>
+                                <a href="{% url 'blog_detail' post.slug %}" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-</div>
-
 {% endblock %}
