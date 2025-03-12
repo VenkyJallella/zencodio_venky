@@ -16,21 +16,11 @@ from .models import NewsletterSubscriber
 from django.contrib.auth.models import User
 
 
-@csrf_exempt
 def create_superuser(request):
-    if request.method == ["POST", "GET"]:
-        username = "VenkyJallella"
-        email = "jallellavenky42@gmail.com"
-        password = "Venky@4427"
-
-        if User.objects.filter(username=username).exists():
-            return JsonResponse({"error": "Superuser already exists"}, status=400)
-
-        User.objects.create_superuser(username=username, email=email, password=password)
-        return JsonResponse({"success": "Superuser created successfully"})
-    
-    return JsonResponse({"error": "Invalid request"}, status=400)
-
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser("VenkyJallella", "jallellavenky42@gmail.com", "Venky@4427")
+        return JsonResponse({"success": "Superuser created successfully!"})
+    return JsonResponse({"error": "Superuser already exists."})
 
 def robots_txt(request):
     content = "User-agent: *\nDisallow: /admin/\nSitemap: https://zencodio.com/sitemap.xml"
