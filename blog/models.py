@@ -1,7 +1,6 @@
 from django.db import models
 from tinymce.models import HTMLField
 from django.urls import reverse
-from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class blogpost(models.Model):
@@ -10,8 +9,7 @@ class blogpost(models.Model):
     slug = models.SlugField(unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = CloudinaryField('image', null=True, blank=True)
-
+    image = models.ImageField(default='blog_images/default_image.jpg', upload_to='blog_images/')
     def get_absolute_url(self):
         return reverse("blog_detail", kwargs={"slug": self.slug})
 
