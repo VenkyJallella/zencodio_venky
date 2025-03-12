@@ -1,27 +1,2 @@
 
 
-.card {
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-}
-
-.card {
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-}
-.card:hover {
-    transform: scale(1.05);
-}
-.carousel-item {
-    min-height: 250px;
-}

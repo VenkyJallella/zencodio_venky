@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 
+
 urlpatterns = [
     path('upload_image/', upload_image, name='upload_image'),
     path('', home, name='home'),
