@@ -72,11 +72,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'zencodio_project.wsgi.application'
 
 
-
-
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
 }
+
+
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.getenv('CLOUD_NAME'),
