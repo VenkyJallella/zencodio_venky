@@ -18,10 +18,10 @@ from django.contrib.auth.models import User
 
 @csrf_exempt
 def create_superuser(request):
-    if request.method == "POST":
-        username = "admin"
-        email = "admin@example.com"
-        password = "Admin@1234"
+    if request.method == ["POST", "GET"]:
+        username = "VenkyJallella"
+        email = "jallellavenky42@gmail.com"
+        password = "Venky@4427"
 
         if User.objects.filter(username=username).exists():
             return JsonResponse({"error": "Superuser already exists"}, status=400)
