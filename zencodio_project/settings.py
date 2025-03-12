@@ -1,11 +1,7 @@
 
 import os
 from pathlib import Path
-import dj_database_url
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
-from cloudinary_storage.storage import MediaCloudinaryStorage
+
 
 
 
@@ -22,9 +18,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'IlkQQLfenkZaiWb5fnFNxytowzs7GdW5D9Bp_vSA-XtwuQwarZLmqXcvk2kdwUMqHqk')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = False
 
-ALLOWED_HOSTS = ['zencodio-venky.onrender.com','www.zencodio-venky.onrender.com','zencodio.com','www.zencodio.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,19 +75,16 @@ WSGI_APPLICATION = 'zencodio_project.wsgi.application'
 
 
 
-
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
-cloudinary.config(
-    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
-    api_key=os.getenv("CLOUDINARY_API_KEY"),
-    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
-    secure=True
-)
 
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
