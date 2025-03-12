@@ -21,8 +21,8 @@ def check_users(request):
 
 def reset_superuser_password(request):
     try:
-        user = User.objects.get(username="venkyjallella")
-        user.set_password("Venky@4861")
+        user = User.objects.get(username="admin")
+        user.set_password("Venky@4427")
         user.save()
         return JsonResponse({"success": "Password reset successfully!"})
     except User.DoesNotExist:
