@@ -13,26 +13,11 @@ from blog.models import blogpost
 from blog.models import FAQ
 from .models import Testimonial
 from .models import NewsletterSubscriber
-from django.contrib.auth.models import User
 
-def check_users(request):
-    users = User.objects.values("username", "is_superuser")
-    return JsonResponse({"users": list(users)})
 
-def reset_superuser_password(request):
-    try:
-        user = User.objects.get(username="admin")
-        user.set_password("Venky@4427")
-        user.save()
-        return JsonResponse({"success": "Password reset successfully!"})
-    except User.DoesNotExist:
-        return JsonResponse({"error": "Superuser does not exist."})
-    
-def create_superuser(request):
-    if not User.objects.filter(username="admin").exists():
-        User.objects.create_superuser("venkyjallella", "jallellavenky@gmail.com", "Venky@4427")
-        return JsonResponse({"success": "Superuser created successfully!"})
-    return JsonResponse({"error": "Superuser already exists."})
+
+
+
 
 def robots_txt(request):
     content = "User-agent: *\nDisallow: /admin/\nSitemap: https://zencodio.com/sitemap.xml"

@@ -2,7 +2,7 @@ from django.urls import path
 from .views import index, contact_us, about_me, projects_view, product_detail, checkout,payment_success, payment_success_view
 from django.conf.urls.static import static
 from django.conf import settings
-from .views import faq_page, privacy_policy,terms_conditions,subscribe_newsletter, robots_txt, create_superuser, reset_superuser_password,check_users
+from .views import faq_page, privacy_policy,terms_conditions,subscribe_newsletter, robots_txt
 from .sitemaps import BlogPostSitemap, StaticViewSitemap
 from django.contrib.sitemaps.views import sitemap
 
@@ -27,9 +27,6 @@ urlpatterns = [
     path('subscribe/', subscribe_newsletter, name='subscribe_newsletter'),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path("robots.txt", robots_txt, name="robots_txt"),
-    path("create-superuser/", create_superuser, name="create_superuser"),
-    path("reset-password/", reset_superuser_password, name="reset_password"),
-    path("check-users/", check_users, name="check_users"),
     
 ]
 
