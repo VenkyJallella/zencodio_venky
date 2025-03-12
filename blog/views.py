@@ -31,3 +31,12 @@ def blog_detail(request, slug):
     post = get_object_or_404(blogpost, slug=slug)
     return render(request, 'blog/blog_detail.html', {'post':post})
 
+from django.http import JsonResponse
+import os
+
+def debug_cloudinary(request):
+    return JsonResponse({
+        "CLOUD_NAME": os.getenv('CLOUD_NAME'),
+        "API_KEY": os.getenv('API_KEY'),
+        "API_SECRET": os.getenv('API_SECRET')
+    })
