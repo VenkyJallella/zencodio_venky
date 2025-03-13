@@ -89,6 +89,7 @@ CLOUDINARY_STORAGE = {
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+print("Cloudinary Config:", os.getenv("CLOUD_NAME"), os.getenv("API_KEY"), os.getenv("API_SECRET"))
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
