@@ -79,14 +79,6 @@ WSGI_APPLICATION = 'zencodio_project.wsgi.application'
 
 
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3",  # The database file will be stored in the project's base directory.
-    }
-}
-
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.getenv('CLOUD_NAME'),
     'API_KEY': os.getenv('API_KEY'),
