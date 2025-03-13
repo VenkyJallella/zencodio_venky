@@ -8,7 +8,12 @@
                 {% for proj in new_projects %}
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <img src="{{ proj.image.url }}" class="card-img-top" alt="{{ proj.name }}">
+                        {% if post.image %}
+                            <img src="{{ proj.image.url }}" class="card-img-top" alt="{{ proj.name }}">
+                            {% else %}
+                            <img src="{{ proj.image.url }}" class="card-img-top" alt="{{ proj.name }}">
+                            {% endif %}
+                        
                         <div class="card-body">
                             <h5 class="card-title">{{ proj.name }}</h5>
                             <p class="card-text">{{ proj.description }}</p>
