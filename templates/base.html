@@ -31,6 +31,20 @@
         plugins: 'advlist autolink lists link image charmap print preview',
         toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent',
         height: 300
+        images_upload_url: '/upload/',  // Django URL for handling uploads
+    automatic_uploads: true,
+    images_upload_handler: function (blobInfo, success, failure) {
+        let formData = new FormData();
+        formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+        fetch('/upload/', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => success(data.location))
+        .catch(error => failure('Image upload failed: ' + error));
+    }
     });
 </script>
 

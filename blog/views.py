@@ -5,16 +5,18 @@ from django.core.files.base import ContentFile
 from django.shortcuts import render , get_object_or_404
 from .models import blogpost
 from django.conf import settings
+import cloudinary.uploader
 
 
 @csrf_exempt
 def upload_image(request):
     if request.method == 'POST' and request.FILES:
         image = request.FILES['file']  # TinyMCE sends file as 'file'
-        path = default_storage.save('uploads/' + image.name, ContentFile(image.read()))
-        image_url = '/media/' + path  # Media URL for serving images
+        upload_result = cloudinary.uploader.upload(image)
+        image_url = upload_result.get('secure_url')
+
         return JsonResponse({'location': image_url})  # TinyMCE expects 'location'
-    
+
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
 def home(request):
