@@ -13,10 +13,13 @@ from blog.models import blogpost
 from blog.models import FAQ
 from .models import Testimonial
 from .models import NewsletterSubscriber
+from django.contrib.auth.models import User
 
 
 
-
+def check_users(request):
+    users = User.objects.values("username", "is_superuser", "is_active")
+    return JsonResponse({"users": list(users)})
 
 
 def robots_txt(request):
