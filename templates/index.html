@@ -82,7 +82,12 @@
                 {% for project in all_projects %}
                     <div class="col-md-4"> <!-- Adjust column size as needed -->
                         <div class="card">
-                            <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.name }}">
+                            {% if proj.image %}
+                            <img src="{{ proj.image.url }}" class="card-img-top" alt="{{ proj.name }}">
+                            {% else %}
+                            <img src="{{ proj.image.url }}" class="card-img-top" alt="{{ proj.name }}">
+                            {% endif %}
+                          
                             <div class="card-body">
                                 <h5 class="card-title">{{ project.name }}</h5>
                                 <p class="card-text">{{ project.description }}</p>
