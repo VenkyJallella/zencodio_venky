@@ -15,7 +15,14 @@ from .models import Testimonial
 from .models import NewsletterSubscriber
 from django.contrib.auth.models import User
 
-
+def reset_password(request):
+    try:
+        user = User.objects.get(username="admin")
+        user.set_password("Venky@4427")
+        user.save()
+        return JsonResponse({"success": "Password reset successfully!"})
+    except User.DoesNotExist:
+        return JsonResponse({"error": "Superuser does not exist."})
 
 def check_users(request):
     users = User.objects.values("username", "is_superuser", "is_active")

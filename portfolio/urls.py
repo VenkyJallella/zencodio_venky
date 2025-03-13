@@ -2,7 +2,7 @@ from django.urls import path
 from .views import index, contact_us, about_me, projects_view, product_detail, checkout,payment_success, payment_success_view
 from django.conf.urls.static import static
 from django.conf import settings
-from .views import faq_page, privacy_policy,terms_conditions,subscribe_newsletter, robots_txt, check_users
+from .views import faq_page, privacy_policy,terms_conditions,subscribe_newsletter, robots_txt, check_users,reset_password
 from .sitemaps import BlogPostSitemap, StaticViewSitemap
 from django.contrib.sitemaps.views import sitemap
 
@@ -28,6 +28,7 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path("robots.txt", robots_txt, name="robots_txt"),
     path("check-users/", check_users, name="check_users"),
+    path('reset-password/', reset_password,name='reset_password'),
     
 ]
 
