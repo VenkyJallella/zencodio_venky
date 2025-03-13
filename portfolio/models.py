@@ -13,14 +13,14 @@ class Contact_Me(models.Model):
     
 class About_me(models.Model):
     name = models.CharField(max_length=50)
-    profile_picture = CloudinaryField('profile_pic')
+    profile_picture = CloudinaryField('profile_pic', blank=True,null=True)
     description = models.CharField(max_length=200)
 
     def __str__(self):
         return self.name
     
 class tech(models.Model):
-    image = models.ImageField(upload_to='techimages/')
+    image = CloudinaryField('tech/', blank=True, null=True)
     name = models.CharField(max_length=50)
 
     def __str__(self):
@@ -35,7 +35,7 @@ class NewsletterSubscriber(models.Model):
 
 class projects(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='projects/')
+    image = CloudinaryField('projects/', blank=True, null=True)
     description= models.CharField( max_length=500)
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     stock = models.IntegerField(default=0)
@@ -73,7 +73,8 @@ class Testimonial(models.Model):
     designation = models.CharField(max_length=100, blank=True, null=True)  # Optional
     review = models.TextField()
     rating = models.IntegerField(default=5)  # 1 to 5 stars
-    image = models.ImageField(upload_to='testimonials/', blank=True, null=True)  # Optional
+    image = CloudinaryField('testimonials/', blank=True, null=True)
+    models.ImageField(upload_to='testimonials/', blank=True, null=True)  # Optional
 
     def __str__(self):
         return self.name
